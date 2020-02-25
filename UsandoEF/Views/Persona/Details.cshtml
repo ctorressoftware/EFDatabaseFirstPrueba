@@ -1,0 +1,47 @@
+﻿@model UsandoEF.Models.ViewModels.Persona
+
+@{
+    ViewBag.Title = "Detalles de la persona";
+}
+
+<div>
+    <h4>Persona</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Apellido)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Apellido)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Sexo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sexo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IdCargo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IdCargo)
+        </dd>
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.Id }, new { @class = "btn btn-warning" })
+    @Html.ActionLink("Volver", "Index", null, new { @class = "btn btn-secondary" })
+</p>

@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="PruebaEFModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Cargo">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Persona" Relationship="Self.FK__Persona__IdCargo__398D8EEE" FromRole="Cargo" ToRole="Persona" />
+  </EntityType>
+  <EntityType Name="Persona">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Apellido" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Sexo" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="IdCargo" Type="Int32" />
+    <NavigationProperty Name="Cargo" Relationship="Self.FK__Persona__IdCargo__398D8EEE" FromRole="Persona" ToRole="Cargo" />
+  </EntityType>
+  <Association Name="FK__Persona__IdCargo__398D8EEE">
+    <End Role="Cargo" Type="Self.Cargo" Multiplicity="0..1" />
+    <End Role="Persona" Type="Self.Persona" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cargo">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Persona">
+        <PropertyRef Name="IdCargo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="PruebaEFEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Cargo" EntityType="Self.Cargo" />
+    <EntitySet Name="Persona" EntityType="Self.Persona" />
+    <AssociationSet Name="FK__Persona__IdCargo__398D8EEE" Association="Self.FK__Persona__IdCargo__398D8EEE">
+      <End Role="Cargo" EntitySet="Cargo" />
+      <End Role="Persona" EntitySet="Persona" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

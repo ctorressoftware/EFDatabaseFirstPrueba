@@ -1,0 +1,31 @@
+﻿@model IEnumerable<UsandoEF.Models.ViewModels.Cargo>
+
+@{
+    ViewBag.Title = "Cargos";
+}
+    <p>
+        @Html.ActionLink("Crear nuevo", "Create", null, new { @class = "btn btn-primary" })
+        @Html.ActionLink("Volver atrás", "Index", "Home", null, new { @class = "btn btn-secondary" })
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Descripcion)
+            </th>
+            <th></th>
+        </tr>
+    
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Descripcion)
+            </td>
+            <td>
+                @Html.ActionLink("Editar", "Edit", new { id = item.Id }, new { @class = "btn btn-warning" })
+                @Html.ActionLink("Detalles", "Details", new { id = item.Id }, new { @class = "btn btn-info" })
+                @Html.ActionLink("Eliminar", "Delete", new { id = item.Id }, new { @class = "btn btn-danger" })
+            </td>
+        </tr>
+    }
+    
+    </table>

@@ -1,0 +1,56 @@
+﻿@model UsandoEF.Models.ViewModels.Persona
+
+@{
+    ViewBag.Title = "Eliminar persona";
+}
+
+<h3>¿Seguro que quiere eliminar esta persona?</h3>
+
+<div>
+    <h4>Persona</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Apellido)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Apellido)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Sexo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sexo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IdCargo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IdCargo)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-danger" />
+            @Html.ActionLink("Volver", "Index", null, new { @class = "btn btn-secondary" })
+        </div>
+    }
+</div>

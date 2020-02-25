@@ -1,0 +1,52 @@
+﻿@model IEnumerable<UsandoEF.Models.ViewModels.Persona>
+
+@{
+    ViewBag.Title = "Personas";
+}
+
+@Html.ActionLink("Crear nuevo", "Create", null, new { @class = "btn btn-primary" })
+@Html.ActionLink("Volver atrás", "Index", "Home", null, new { @class = "btn btn-secondary" })
+
+<table class="table mt-3">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Apellido)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Sexo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IdCargo)
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Apellido)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Sexo)
+            </td>
+            <td>
+                @using (UsandoEF.Models.PruebaEFEntities db = new UsandoEF.Models.PruebaEFEntities())
+                {
+                    @db.Cargo.Find(item.IdCargo).Descripcion
+                }
+            </td>
+            <td>
+                @Html.ActionLink("Editar", "Edit", new { id = item.Id }, new { @class = "btn btn-warning" })
+                @Html.ActionLink("Detalles", "Details", new { id = item.Id }, new { @class = "btn btn-info" })
+                @Html.ActionLink("Eliminar", "Delete", new { id = item.Id }, new { @class = "btn btn-danger" })
+            </td>
+        </tr>
+    }
+
+</table>

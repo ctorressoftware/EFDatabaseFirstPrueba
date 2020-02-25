@@ -1,0 +1,26 @@
+﻿@model UsandoEF.Models.ViewModels.Cargo
+
+@{
+    ViewBag.Title = "Detalles del cargo";
+}
+
+    <div>
+        <h4>Cargo</h4>
+        <hr />
+        <dl class="dl-horizontal dl">
+            <dt>
+                @Html.DisplayNameFor(model => model.Id)
+                @Html.DisplayNameFor(model => model.Descripcion)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Id)
+                @Html.DisplayFor(model => model.Descripcion)
+            </dd>
+    
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Editar", "Edit", new { id = Model.Id }, new { @class="btn btn-warning" })
+        @Html.ActionLink("Volver", "Index", null, new { @class = "btn btn-secondary" })
+    </p>

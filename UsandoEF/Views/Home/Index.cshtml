@@ -1,0 +1,14 @@
+﻿@{ 
+    ViewBag.Title = "MySite";
+}
+
+<h2 class="h3 text-monospace">Bienvenido</h2>
+
+<p>Entre a los siguientes mantenimientos:</p>
+
+<div class="text-center">
+    @Html.ActionLink("Persona", "Index", "Persona", null, new { @class = "btn btn-primary col-3" })
+    <br />
+    @Html.ActionLink("Cargo", "Index", "Cargo", null, new { @class = "btn btn-primary mt-2 col-3" })
+</div>
+

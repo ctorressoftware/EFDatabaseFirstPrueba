@@ -1,0 +1,30 @@
+﻿@model UsandoEF.Models.ViewModels.Cargo
+
+@{
+    ViewBag.Title = "Eliminar cargo";
+}
+
+    <h3>¿Seguro que quiere eliminar este cargo?</h3>
+    <div>
+        <h4>Cargo</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Descripcion)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Descripcion)
+            </dd>
+    
+        </dl>
+    
+        @using (Html.BeginForm()) {
+            @Html.AntiForgeryToken()
+    
+            <div class="form-actions no-color">
+                <input type="submit" value="Delete" class="btn btn-danger" /> 
+                @Html.ActionLink("Volver", "Index", null, new { @class = "btn btn-secondary" })
+            </div>
+        }
+    </div>
